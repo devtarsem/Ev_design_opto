@@ -1,0 +1,24 @@
+.header{
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #00000000, #00000088),url("./../icon/home.jpg");
+    background-position: bottom;
+    background-size: cover;
+}
+.heaidng{
+    font-size: 6.4rem;
+    color: var(--color-white);
+}
+.des{
+    font-size: 1.6rem;
+    color: var(--color-white);
+    text-align: center;
+
+}
+.link{
+    background-color: var(--color-white);
+    padding: 1rem 4rem;
+    font-size: 1.6rem;
+    color: var(--color-third);
+    border-radius: 1rem;
+    text-align: center;
+}

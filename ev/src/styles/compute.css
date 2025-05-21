@@ -1,0 +1,112 @@
+.first,.second{
+    grid-column: 1/4;
+    width: 100%;
+    height: 100vh;
+    border-right: 0.1rem solid var(--color-third);
+}
+.second{
+    grid-column: 4/10;
+}
+.third{
+    grid-column: 10/13;
+}
+.tophead{
+    height: 10vh;
+    border-bottom: 0.1rem solid var(--color-third);
+}
+.head_color{
+    color: var(--color-third);
+    margin-bottom: 0 !important;
+}
+.da__{
+    color: var(--color-third);
+    font-size: 1.6rem;
+}
+.borderbot{
+    border-bottom: 0.1rem solid var(--color-third);
+}
+
+.yawtable{
+    font-size: 1.6rem;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.yawtable thead tr th{
+    padding: 1rem;
+    background-color: var(--color-third);
+    color: var(--color-white);
+}
+.yawtable tbody tr td{
+    padding: 0.70rem;
+    text-align: center;
+}
+.yawtable tbody tr:nth-child(odd){
+    background-color: var(--color-second);
+    color: var(--color-white);
+}
+.yawtable tbody tr:nth-child(even){
+    background-color: var(--color-fun);
+    color: var(--color-white);
+}
+
+.chart{
+    height: 80vh;
+    border-bottom: 0.1rem solid var(--color-third);
+}
+.plot{
+    background-color: #000;
+    border-bottom: 0.1rem solid var(--color-third);
+}
+.secbot{
+    height: 10vh;
+}
+.computebtn{
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    border: none;
+}
+.outputtable{
+    overflow: scroll;
+    height: 90vh;
+}
+.padmin{
+    font-size: 1.1rem;
+}
+.green{
+    background-color: green;
+}
+.red{
+    background-color: red;
+}
+
+.flotbtnExcel{
+    position: fixed;
+    bottom: 5%;
+    right: 2%;
+    border: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: var(--color-third);
+    color : var(--color-white);
+    font-family: 'DM Sans';
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+.openForcebtn{
+    border-radius: 1rem;
+}
+.toggles{
+    border-bottom: 0.1rem solid var(--color-third);
+}
+.anap,.ana{
+    text-align: center;
+    font-size: 1.8rem;
+    background-color: red;
+    color: var(--color-white);
+    border-radius: 0.5rem;
+}
+.ana{
+    background-color: green;
+}
