@@ -4,6 +4,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Home from './components/home'
 import Design from './components/evDesign'
 import Compute from './components/compute'
+import './styles/media.css'
 
 const router = createBrowserRouter([
   {

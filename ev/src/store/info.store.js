@@ -16,7 +16,16 @@ const infoStore = create(
         prepared_data : [],
         acceleration_data : [],
         max_speed : 0,
-
+        errorDisplay : false,
+        errorMsg : '',
+        setErrorMsg : (msg)=>{
+            set({errorDisplay : true, errorMsg : msg})
+        }
+        ,
+        closeError : ()=>{
+            set({errorDisplay : false})
+        }
+        ,
         showFileUploadPanel : false,
         finalProcced : false,
         setShowPanel : ()=>{
@@ -130,6 +139,14 @@ const infoStore = create(
             XLSX.utils.book_append_sheet(workbook, worksheet, "MySheet");
         
             XLSX.writeFile(workbook, "exported_file.xlsx");
+        }
+
+        ,
+
+        clearningCurrentData : ()=>{
+            localStorage.removeItem('EssentialDT')
+            localStorage.removeItem('YawDB')
+            set({max_speed : 0,essentialData: [], yaw : [], prepared_data : [], acceleration_data : []})
         }
     })
 )

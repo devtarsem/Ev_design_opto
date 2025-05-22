@@ -1,0 +1,109 @@
+@media (max-width : 1215px){
+    .header{
+        padding: 4.8rem;
+    }
+    .heaidng{
+        font-size: 3.6rem;
+        text-align: center;
+    }
+    .compute{
+        grid-template-columns: repeat(2,1fr) !important;
+    }
+    .first,.third{
+        grid-column: 1/2 !important;
+    }
+    .second{
+        grid-column: 2/3 !important;
+    }
+}
+
+@media (max-width : 1060px){
+    .compute{
+        grid-template-columns: repeat(1,1fr) !important;
+    }
+    .first,.third{
+        grid-column: 1/1 !important;
+    }
+    .second{
+        grid-column: 1/1 !important;
+    }
+}
+
+@media (max-width : 1115px){
+    .probgrid{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .formgrid{
+        grid-template-columns: repeat(3,1fr) !important;
+    }
+    .analysis{
+        height: 20vh !important;
+    }
+    .secbot{
+        height: 10vh !important;
+    }
+    .second,.third{
+        margin-top: 4.8rem !important;
+    }
+    .third{
+        margin-top: 14.2rem !important;
+    }
+}
+
+@media(max-width : 800px){
+    .problem_statement, .ourSolution_statement{
+        padding: 4.8rem;
+    }
+    .formgrid{
+        grid-template-columns: repeat(2,1fr) !important;
+    }
+    .removebtn{
+        font-size: 1.2rem !important;
+    }
+}
+@media(max-width :600px){
+    .problem_statement, .ourSolution_statement{
+        padding: 0rem;
+    }
+    .minihead{
+        font-size: 2.4rem !important;
+    }
+    
+}
+@media(max-width :500px){
+    .dess{
+        text-align: center;
+    }
+    .colorhead{
+        padding-top: 4.8rem;
+    }
+    .probgrid,.solgrid{
+        padding: 4.8rem;
+    }
+    .formgrid{
+        grid-template-columns: repeat(1,1fr) !important;
+    }
+    .design{
+        height: 100% !important;
+    }
+    .da{
+        font-size: 1.6rem !important;
+    }
+}
+@media (max-width : 325px){
+    .heaidng{
+        font-size: 2.4rem;
+    }
+    .des{
+        font-size: 1.2rem;
+    }
+    .link{
+        font-size: 1.2rem;
+    }
+    .probgrid,.solgrid{
+        padding: 1.6rem;
+    }
+    .footer{
+        padding: 1.6rem;
+    }
+}

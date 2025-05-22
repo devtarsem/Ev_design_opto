@@ -1,6 +1,8 @@
 import './../styles/compute.css'
 import './../utility/util.css'
 import infoStore from '../store/info.store';
+import './../styles/media.css'
+
 import { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import {

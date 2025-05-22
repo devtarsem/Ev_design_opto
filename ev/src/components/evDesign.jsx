@@ -1,10 +1,13 @@
 import './../styles/design.css'
 import './../utility/util.css'
 import { Link } from 'react-router';
+import './../styles/media.css'
+
 import { createRef } from 'react';
 import infoStore from '../store/info.store';
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import Error from './error';
 function Design(){
 
     const mass = createRef();
@@ -18,13 +21,54 @@ function Design(){
     const air_density = createRef();
     const windSpeed = createRef();
     const navigate = useNavigate();
-    const {essentialData, settingAllDataTLocal, yaw, cacheData, showFileUploadPanel, settingtheExcelToLocal,setShowPanel, setClosePanel} = infoStore();
+    const {essentialData, errorDisplay, errorMsg, clearningCurrentData, setErrorMsg, closeError,settingAllDataTLocal, yaw, cacheData, showFileUploadPanel, settingtheExcelToLocal,setShowPanel, setClosePanel} = infoStore();
 
     useEffect(el=>{
         cacheData();
     }, [])
 
     function DataSetup(){
+        if(mass.current.value.trim() == '' ){
+            setErrorMsg("Mass must be correctly defined")
+            return;
+        }
+        if(area.current.value.trim() == ''){
+            setErrorMsg("Frontal area must be defined")
+            return;
+        }
+        if(tyreRadius.current.value.trim() == ''){
+            setErrorMsg("Tyre radous must be defined")
+            return;
+        }
+        if(gear.current.value.trim() == ''){
+            setErrorMsg("Gear ratio must be defined")
+            return;
+        }
+        if(tor.current.value.trim() == ''){
+            setErrorMsg("Torque  must be defined")
+            return;
+        }
+        if(motorPower.current.value.trim() == ''){
+            setErrorMsg("Motor Power must be defined")
+            return;
+        }
+        if(effi.current.value.trim() == ''){
+            setErrorMsg("Efficiency must be defined")
+            return;
+        }
+        if(rollResis.current.value.trim() == ''){
+            setErrorMsg("Rolling resistance must be defined")
+            return;
+        }
+        if(air_density.current.value.trim() == ''){
+            setErrorMsg("Air density must be defined")
+            return;
+        }
+        if(windSpeed.current.value.trim() == ''){
+            setErrorMsg("Wind speed must be defined")
+            return;
+        }
+
         settingAllDataTLocal({
             mass : Number(mass.current.value),
             area : Number(area.current.value),
@@ -48,25 +92,45 @@ function Design(){
         setClosePanel()
     }
 
-    const [sheetExcel, setSheet] = useState();
+    function clearFun(){
+        clearningCurrentData()
+    }
+
+    const [sheetExcel, setSheet] = useState('');
    
     function pickingFile(el){
+        if(el.target.files[0].name.split('.')[1] != 'xlsx'){
+            setErrorMsg("File must be of excel(xlsx) type")
+            return;
+        }
         setSheet(sheetExcel=> el.target.files[0]);
         console.log(el.target.files[0])
     }
 
     function uploadFile(){
+        console.log(sheetExcel)
+        if( sheetExcel && sheetExcel.name.split('.')[1] != 'xlsx' ){
+            alert('sd')
+            setErrorMsg("File must be of excel(xlsx) type")
+            return;
+        }
         settingtheExcelToLocal(sheetExcel, navigate)
     }
 
     return(
         <div className="design pad16">
+            <button onClick={clearFun} className='removebtn'>Erase Data</button>
+            {errorDisplay &&
+                <Error/>
+            }
             {showFileUploadPanel &&
                 <div className='excelUpload flex flex-2'>
                     <div className='fileup flex flex-dir gap16 pad16'>
                         <label className='label'>upload Yaw angle vs tangential force sheet</label>
                         <input onChange={pickingFile} ref={mass} className='inp' placeholder='450kg' type='file'/>
-                        <button onClick={uploadFile} className='btn'>Upload sheet</button>
+                        {sheetExcel &&
+                            <button onClick={uploadFile} className='btn'>Upload sheet</button>
+                        }
                         <button onClick={closePanel} className='proceed btn'>close</button>
                     </div>
                 </div>
@@ -75,47 +139,47 @@ function Design(){
             {essentialData.length == 0 &&
 
                 <div className='designIner pad16 flex flex-dir gap16'>
-                    <h2 className='head2'>Fill out essential information</h2>
-                    <div className='grid grid-5-col gap16'>
+                    <h2 className='head2 minihead'>Fill out essential information</h2>
+                    <div className='formgrid grid grid-5-col gap16'>
                         <div className='flex flex-dir gap16'>
                             <label className='label'>Mass(m) kg</label>
-                            <input ref={mass} className='inp' placeholder='450kg' type='text'/>
+                            <input ref={mass} className='inp' placeholder='450kg' type='number'/>
                         </div>
                         <div className='flex flex-dir gap16'>
                             <label className='label'>Frontal area(m*m)</label>
-                            <input ref={area} className='inp' placeholder='1.3' type='text'/>
+                            <input ref={area} className='inp' placeholder='1.3' type='number'/>
                         </div>
                         <div className='flex flex-dir gap16'>
                             <label className='label'>Tyre radius(m)</label>
-                            <input ref={tyreRadius} className='inp' placeholder='3.5' type='text'/>
+                            <input ref={tyreRadius} className='inp' placeholder='3.5' type='number'/>
                         </div>
                         <div className='flex flex-dir gap16'>
                             <label className='label'>Gear ratio(i)</label>
-                            <input ref={gear} className='inp' placeholder='2.5' type='text'/>
+                            <input ref={gear} className='inp' placeholder='2.5' type='number'/>
                         </div>
                         <div className='flex flex-dir gap16'>
                             <label className='label'>Torque (peak)(Nm)</label>
-                            <input ref={tor} className='inp' placeholder='120 Nm' type='text'/>
+                            <input ref={tor} className='inp' placeholder='120 Nm' type='number'/>
                         </div>
                         <div className='flex flex-dir gap16'>
                             <label className='label'>Motor power(Kw)</label>
-                            <input ref={motorPower} className='inp' placeholder='7.5Kw' type='text'/>
+                            <input ref={motorPower} className='inp' placeholder='7.5Kw' type='number'/>
                         </div>
                         <div className='flex flex-dir gap16'>
                             <label className='label'>Efficiency η</label>
-                            <input ref={effi} className='inp' placeholder='0.9' type='text'/>
+                            <input ref={effi} className='inp' placeholder='0.9' type='number'/>
                         </div>
                         <div className='flex flex-dir gap16'>
                             <label className='label'>Rolling resistance coefficient </label>
-                            <input ref={rollResis} className='inp' placeholder='0.012' type='text'/>
+                            <input ref={rollResis} className='inp' placeholder='0.012' type='number'/>
                         </div>
                         <div className='flex flex-dir gap16'>
                             <label className='label'>Air density ρ (kg/m*m*m) </label>
-                            <input ref={air_density} className='inp' placeholder='0.012' type='text'/>
+                            <input ref={air_density} className='inp' placeholder='0.012' type='number'/>
                         </div>
                         <div className='flex flex-dir gap16'>
                             <label className='label'>Wind speed </label>
-                            <input ref={windSpeed} className='inp' placeholder='10m/s' type='text'/>
+                            <input ref={windSpeed} className='inp' placeholder='10m/s' type='number'/>
                         </div>
                         <div className='flex flex-dir gap16'>
                             <label className='label'>gravity is 9.81 m/s*s </label>

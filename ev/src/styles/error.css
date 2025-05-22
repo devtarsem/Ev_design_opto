@@ -1,0 +1,15 @@
+.error{
+    position: fixed;
+    right: 5%;
+    top: 5%;
+    background-color: var(--color-white);
+    border-radius: 1rem;
+    border-left: 1rem solid red;
+    z-index: 1000;
+}
+.err{
+    font-size: 1.8rem;
+    text-align: center;
+    line-height: 1.5;
+    color: var(--color-third);
+}

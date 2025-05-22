@@ -32,3 +32,22 @@
     background-color: var(--color-second);
     border-radius: 1rem;
 }
+
+.closebtn{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.removebtn{
+    position: fixed;
+    right: 2.5%;
+    bottom: 5%;
+    padding: 1rem 4rem;
+    border-radius: 1rem;
+    font-family: 'DM Sans';
+    font-size: 1.8rem;
+    background-color: var(--color-white);
+    color: var(--color-third);
+    cursor: pointer;
+}
