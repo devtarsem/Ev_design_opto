@@ -14,8 +14,8 @@ function Home(){
             <main className='main'>
                 <header className='header flex flex-2 flex-dir gap16'>
                     <img src={logo} className='logo' alt='logo'/>
-                    <h1 className='heaidng'>Analyze you electric vehicle in just one click</h1>
-                    <p className='des'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea minima amet corrupti nam et excepturi ipsum eaque, magnam qui<br/> labore id ratione, quisquam iusto commodi praesentium magni illo optio aliquam?</p>
+                    <h1 className='heaidng'>Analyze your electric vehicle in just one click</h1>
+                    {/* <p className='des'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea minima amet corrupti nam et excepturi ipsum eaque, magnam qui<br/> labore id ratione, quisquam iusto commodi praesentium magni illo optio aliquam?</p> */}
                     <Link to='Ev-design' className='link'>Analyze your design</Link>
                 </header>
                 <div className='problem_statement pad96'>
