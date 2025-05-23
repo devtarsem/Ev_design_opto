@@ -31,7 +31,7 @@
 
 @media (max-width : 1115px){
     .probgrid{
-        grid-template-columns: repeat(1,1fr);
+        grid-template-columns: repeat(1,1fr) !important;
     }
     .formgrid{
         grid-template-columns: repeat(3,1fr) !important;
@@ -63,10 +63,22 @@
 }
 @media(max-width :600px){
     .problem_statement, .ourSolution_statement{
-        padding: 0rem;
+        padding: 0rem !important;
     }
     .minihead{
         font-size: 2.4rem !important;
+    }
+    .head2{
+        font-size: 1.6rem !important;
+    }
+    .logo{
+        left: 5% !important;
+    }
+    .foothead{
+        font-size: 2.4rem !important;
+    }
+    .header{
+        padding: 2.4rem !important;
     }
     
 }
@@ -78,7 +90,7 @@
         padding-top: 4.8rem;
     }
     .probgrid,.solgrid{
-        padding: 4.8rem;
+    padding: 4.8rem !important;
     }
     .formgrid{
         grid-template-columns: repeat(1,1fr) !important;
@@ -90,7 +102,7 @@
         font-size: 1.6rem !important;
     }
 }
-@media (max-width : 325px){
+@media (max-width : 370px){
     .heaidng{
         font-size: 2.4rem;
     }
@@ -101,7 +113,7 @@
         font-size: 1.2rem;
     }
     .probgrid,.solgrid{
-        padding: 1.6rem;
+        padding: 1.6rem !important;
     }
     .footer{
         padding: 1.6rem;
